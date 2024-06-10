@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::{color::palettes::css::{BLUE, DARK_GREEN}, prelude::*};
 use bevy_third_person_camera::{camera::*, controller::*, *};
 
 fn main() {
@@ -55,14 +55,14 @@ fn spawn_world(
 ) {
     let floor = PbrBundle {
         mesh: meshes.add(Mesh::from(Plane3d::default().mesh().size(15.0, 15.0))),
-        material: materials.add(Color::DARK_GREEN),
+        material: materials.add(Color::srgb_from_array(DARK_GREEN.to_f32_array_no_alpha())),
         ..default()
     };
 
     let block = PbrBundle {
         mesh: meshes.add(Mesh::from(Cuboid::new(0.5, 0.5, 0.5))),
         transform: Transform::from_xyz(2.5, 0.25, -2.5),
-        material: materials.add(Color::BLUE),
+        material: materials.add(Color::srgb_from_array(BLUE.to_f32_array_no_alpha())),
         ..default()
     };
 
